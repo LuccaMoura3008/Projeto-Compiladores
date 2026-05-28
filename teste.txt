@@ -1,0 +1,30 @@
+program TesteLexico;
+
+/ Area de declaracao de variaveis /
+var
+    lucca, shukaku : string;
+    ano, limiteMaximo : integer;
+    estaEmAracaju : boolean;
+    identificadorGiganteQueSeraCortado : integer;
+
+begin
+    / Testando as atribuicoes e os tipos de dados /
+    lucca := "Testando o nosso compilador";
+    ano := 2026;
+    estaEmAracaju := true;
+
+    / O Lexer deve cortar o identificador abaixo para 16 caracteres /
+    identificadorGiganteQueSeraCortado := 10;
+
+    / Testando limite de CTE e operadores /
+    limiteMaximo := 32767;
+
+    / Laco de repeticao com operadores relacionais e logicos /
+    while (ano <= limiteMaximo) AND (estaEmAracaju == ~false) do
+    begin
+        ano := ano + 1;
+        ano := ano * 2 / 1;
+    end;
+
+    write(lucca, ano);
+end.
