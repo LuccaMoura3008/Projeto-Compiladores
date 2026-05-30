@@ -1,0 +1,23 @@
+program TesteSintatico;
+
+/ Area de declaracao de variaveis /
+var
+    ano, limiteMaximo : integer;
+    Teste : boolean;
+
+begin
+    / Atribuicoes base /
+    ano := 2026;
+    Teste := true;
+    limiteMaximo := 32767;
+
+    / Laco de repeticao sem ponto e virgula no ultimo comando /
+    while (ano <= limiteMaximo) AND (Teste == ~false) do
+    begin
+        ano := ano + 1;
+        ano := ano * 2
+    end;
+
+    / Imprimindo texto e variavel (CADEIA permitida apenas aqui) /
+    write("Testando o nosso compilador Sintatico", ano)
+end.
