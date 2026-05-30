@@ -5,7 +5,7 @@ options {
 }
 
 @lexer::members {
-    private void reportarErroLexico() {
+    private void erroLexico() {
         throw new RuntimeException(
             "Erro Lexico! Linha " + getLine() + ", Coluna " + getCharPositionInLine() + " -> Token nao reconhecido: " + getText()
         );
@@ -14,7 +14,7 @@ options {
 
 //Regras do Parser
 
-prog     : PROGRAM IDENTIFIER PVIG decls cmdComp PONTO EOF ;
+prog     : PROGRAM IDENTIFIER PVIG decls cmdComp PONTO EOF ; // EOF pois força a ferramenta a ler o arquivo inteiro
 
 decls    : VAR listDecl
          |
@@ -90,7 +90,16 @@ lego     : IDENTIFIER
 PROGRAM : 'program' ;
 
 INTEGER : 'integer' ;
+
 BOOLEAN : 'boolean' ;
+
+STRING  : 'string' ;
+
+IF      : 'if' ;
+
+THEN    : 'then' ;
+
+ELSE    : 'else' ;
 
 BEGIN   : 'begin' ;
 
@@ -136,8 +145,10 @@ ATRIB   : ':=' ;
 
 //Identificadores
 
-IDENTIFIER : [a-z][a-z0-9]* {
-        if (getText().length() > 16) {
+IDENTIFIER : [a-z][a-z0-9]*
+    {
+        if (getText().length() > 16)
+        {
             setText(getText().substring(0, 16));
         }
     }
@@ -145,13 +156,17 @@ IDENTIFIER : [a-z][a-z0-9]* {
 
 CTE : [0-9]+
     {
-        try {
+        try
+        {
             int valor = Integer.parseInt(getText());
-            if (valor > 32767) {
+            if (valor > 32767)
+            {
                 throw new RuntimeException("Erro Lexico! Linha " + getLine() + ": Constante inteira excedeu o limite de 2 bytes (32767): " + getText());
             }
-        } catch (NumberFormatException e) {
-            throw new RuntimeException("Erro Lexico! Linha " + getLine() + ": Constante inteira absurdamente grande: " + getText());
+        }
+        catch (NumberFormatException e)
+        {
+            throw new RuntimeException("Erro Lexico! Linha " + getLine() + ": Constante inteira muito grande: " + getText());
         }
     }
 ;
@@ -164,4 +179,4 @@ ESPACO     : [ \t\n\r]+ -> skip ;
 
 COMENTARIO : '/' ~[/]* '/' -> skip ;
 
-ERRO : . { reportarErroLexico(); } ;
+ERRO : . { erroLexico(); } ;

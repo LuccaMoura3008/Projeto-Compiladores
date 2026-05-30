@@ -1,0 +1,25 @@
+program TesteFalhas / Eroo 1: Falta o ponto e virgula aqui /
+
+var
+    teste, limiteMaximo : integer;
+    / ERRO 2: Faltou o ':' antes do tipo /
+    Teste boolean;
+
+begin
+    / ERRO 3: Variavel recebendo String (a gramatica so vai permitir expressões aqui) /
+    teste := "Isso vai quebrar o Parser";
+    Teste := true;
+
+    / ERRO 4: Operadores matematicos colidindo /
+    limiteMaximo := 10 + * 5;
+
+    / Loop de repeticao com erro /
+    while (teste <= limiteMaximo) AND (Teste == ~false) do
+    begin
+        teste := teste + 1;
+        teste := teste * 2; / ERRO 5: Ponto e virgula sobrando antes do 'end' /
+    end;
+
+    write("Testando a quebra do compilador", teste)
+/ ERRO 6: Faltou o '.' no final do programa /
+end

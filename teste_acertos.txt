@@ -3,16 +3,16 @@ program TesteSintatico;
 / Area de declaracao de variaveis /
 var
     ano, limiteMaximo : integer;
-    estaEmAracaju : boolean;
+    Teste : boolean;
 
 begin
     / Atribuicoes base /
     ano := 2026;
-    estaEmAracaju := true;
+    Teste := true;
     limiteMaximo := 32767;
 
     / Laco de repeticao sem ponto e virgula no ultimo comando /
-    while (ano <= limiteMaximo) AND (estaEmAracaju == ~false) do
+    while (ano <= limiteMaximo) AND (Teste == ~false) do
     begin
         ano := ano + 1;
         ano := ano * 2
