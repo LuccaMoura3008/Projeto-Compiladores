@@ -6,11 +6,11 @@
 ![ANTLR4](https://img.shields.io/badge/ANTLR_4-DC3545?style=for-the-badge&logoColor=white)
 
 Alunos:
-  - `Lucca Brito Moura`:
-  - `Anthony Magalhães Andrade da Costa`:
+  - `Lucca Brito Moura`
+  - `Anthony Magalhães Andrade da Costa`
   
 Professora:
-  - `Layse Santos Souza`:
+  - `Layse Santos Souza`
 
 ## 📖 Sobre o Projeto
 Este projeto é um **Analisador Léxico e Sintático** construído do zero para uma linguagem de programação acadêmica, desenvolvido como requisito da disciplina de Linguagens Formais e Compiladores da UNIT. 
